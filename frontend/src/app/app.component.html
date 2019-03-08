@@ -1,0 +1,60 @@
+<div class="container">
+  <h1 b4->Verificacion Turno </h1>  
+  <h4>Por favor ingrese numero de cedula:</h4>
+
+  <div class="row">
+
+    <div class="form-inline col">
+        <div class="form-group mb-2">
+      <label for="numeroCedula" class="sr-only">Cedula</label>
+      <input type="text" readonly class="form-control-plaintext" id="numeroCedula" value="Numero de Cedula">
+        </div>
+     <div class="form-group mx-sm-3 mb-2">
+      <label for="inputPassword2" class="sr-only">Password</label>
+      <input type="text" class="form-control" id="inputPassword2" placeholder="########" #cedula>
+     </div>
+       
+    </div>
+
+    <div class="form-inline col">
+      <div class="form-group mb-2">
+      <label for="horaingreso" class="sr-only">Hora</label>
+      <input type="text" readonly class="form-control-plaintext" id="hora" value="Hora actual de ingreso">
+        </div>
+     <div class="form-group mx-sm-3 mb-2">
+      <label for="inputPassword2" class="sr-only">Password</label>
+      <input type="text" class="form-control" id="horaingreso" placeholder="##:##" #horaingreso>
+     </div>      
+    </div>
+
+</div>
+
+<button (click)="validarCedula( cedula.value, horaingreso.value )" class="btn btn-outline-danger btn-block">Validar</button> 
+
+  <div *ngIf="!mostrar" class="card text-white bg-primary mb-3" style="width: 100%;">
+    <div class="card-header"></div>
+    <div class="card-body">
+      <h5 class="card-title">SU CEDULA NO SE ENCUENTRA EN LA BASE DE DATOS</h5>      
+    </div>
+  </div>
+
+  <table class="striped highlight black-text">
+      <thead>
+        <th>Cedula</th>
+        <th>Nombre</th>
+        <th>Turno</th>
+        
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of empleadoService.empleados">
+          <td>{{ employee.cedula }}</td>
+          <td>{{ employee.nombre }}</td>
+          <td>{{ employee.turno }}</td>
+          
+        </tr>
+      </tbody>
+    </table>
+
+
+</div>
+
